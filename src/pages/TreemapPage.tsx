@@ -100,13 +100,9 @@ const TreemapPage = () => {
   const [view, setView] = useState<"treemap" | "breakdown">("treemap");
 
   return (
-    <DashboardLayout>
-      <div className="mx-auto max-w-6xl space-y-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-semibold tracking-tight text-foreground">Budget Allocation</h1>
-            <p className="mt-1 text-data-sm text-muted-foreground">Treemap view of spending across workspaces and projects</p>
-          </div>
+    <DashboardLayout title="Budget Allocation" subtitle="Treemap view">
+      <div className="p-5 space-y-4 max-w-[1200px]">
+        <div className="flex items-center justify-end">
           <div className="flex gap-1.5">
             {(["treemap", "breakdown"] as const).map((v) => (
               <button

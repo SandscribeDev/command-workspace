@@ -64,11 +64,10 @@ const TaskBoard = () => {
   };
 
   return (
-    <DashboardLayout>
-      <div className="mx-auto max-w-5xl space-y-6">
+    <DashboardLayout title="Task Board">
+      <div className="p-5 space-y-5 max-w-[1200px]">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <h1 className="text-xl font-semibold tracking-tight text-foreground">Task Board</h1>
+        <div className="flex items-center justify-end">
           <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-data-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
             <Plus className="h-3.5 w-3.5" />
             New Task
