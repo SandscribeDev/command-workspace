@@ -9,6 +9,11 @@ import {
   Building2,
   ShoppingBag,
   Package,
+  GitBranch,
+  Globe,
+  Network,
+  GanttChart,
+  SquareStack,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
@@ -33,6 +38,14 @@ const workspaces = [
   { title: "Charity Kenya", url: "/ws/charity", icon: Building2 },
   { title: "FBA Business", url: "/ws/fba", icon: Package },
   { title: "Local Shop", url: "/ws/shop", icon: ShoppingBag },
+];
+
+const visualizations = [
+  { title: "Workflow", url: "/workflow", icon: GitBranch },
+  { title: "Geo Map", url: "/map", icon: Globe },
+  { title: "Relationships", url: "/graph", icon: Network },
+  { title: "Timeline", url: "/gantt", icon: GanttChart },
+  { title: "Treemap", url: "/treemap", icon: SquareStack },
 ];
 
 const tools = [
@@ -96,6 +109,15 @@ export function AppSidebar() {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>{renderItems(workspaces)}</SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
+            Visualizations
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>{renderItems(visualizations)}</SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
