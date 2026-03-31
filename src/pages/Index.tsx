@@ -55,7 +55,7 @@ const CommandCentre = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-label font-medium uppercase tracking-wider text-muted-foreground">Needs Attention</h2>
-              <span className="rounded-full bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold text-destructive">{attention.length}</span>
+              <span className="rounded-full bg-destructive/15 px-2 py-0.5 text-[10px] font-semibold text-destructive">{attention.length}</span>
             </div>
             <div className="space-y-2">
               <AnimatePresence mode="popLayout">
@@ -64,7 +64,7 @@ const CommandCentre = () => {
                 ))}
               </AnimatePresence>
               {attention.length === 0 && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="rounded-lg border border-border bg-card p-8 text-center text-data-sm text-muted-foreground">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-card rounded-xl p-8 text-center text-data-sm text-muted-foreground">
                   All clear — nothing needs your attention.
                 </motion.div>
               )}
@@ -72,37 +72,37 @@ const CommandCentre = () => {
           </div>
 
           {/* Activity chart */}
-          <div className="lg:col-span-3 rounded-lg border border-border bg-card p-4">
+          <div className="lg:col-span-3 glass-card rounded-xl p-4">
             <h2 className="text-label font-medium uppercase tracking-wider text-muted-foreground mb-4">Weekly Activity</h2>
             <div className="h-[200px]">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={activityData} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
                   <defs>
                     <linearGradient id="taskGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="hsl(228, 76%, 58%)" stopOpacity={0.3} />
-                      <stop offset="100%" stopColor="hsl(228, 76%, 58%)" stopOpacity={0} />
+                      <stop offset="0%" stopColor="hsl(220, 70%, 55%)" stopOpacity={0.25} />
+                      <stop offset="100%" stopColor="hsl(220, 70%, 55%)" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="checkinGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="hsl(160, 72%, 37%)" stopOpacity={0.2} />
-                      <stop offset="100%" stopColor="hsl(160, 72%, 37%)" stopOpacity={0} />
+                      <stop offset="0%" stopColor="hsl(152, 60%, 42%)" stopOpacity={0.15} />
+                      <stop offset="100%" stopColor="hsl(152, 60%, 42%)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11 }} />
                   <Tooltip />
-                  <Area type="monotone" dataKey="tasks" stroke="hsl(228, 76%, 58%)" strokeWidth={2} fill="url(#taskGradient)" />
-                  <Area type="monotone" dataKey="checkins" stroke="hsl(160, 72%, 37%)" strokeWidth={1.5} fill="url(#checkinGradient)" />
+                  <Area type="monotone" dataKey="tasks" stroke="hsl(220, 70%, 55%)" strokeWidth={2} fill="url(#taskGradient)" />
+                  <Area type="monotone" dataKey="checkins" stroke="hsl(152, 60%, 42%)" strokeWidth={1.5} fill="url(#checkinGradient)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
             <div className="mt-3 flex items-center gap-4 text-data-sm">
               <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_6px_hsl(220,70%,55%,0.5)]" />
                 <span className="text-muted-foreground">Tasks completed</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-success" />
+                <span className="h-2 w-2 rounded-full bg-success shadow-[0_0_6px_hsl(152,60%,42%,0.5)]" />
                 <span className="text-muted-foreground">Worker check-ins</span>
               </div>
             </div>
@@ -119,9 +119,9 @@ const CommandCentre = () => {
           </div>
         </div>
 
-        {/* Bottom row: Spending chart + Budget bars */}
+        {/* Bottom row */}
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
-          <div className="lg:col-span-3 rounded-lg border border-border bg-card p-4">
+          <div className="lg:col-span-3 glass-card rounded-xl p-4">
             <h2 className="text-label font-medium uppercase tracking-wider text-muted-foreground mb-4">Monthly Spending</h2>
             <div className="h-[180px]">
               <ResponsiveContainer width="100%" height="100%">
@@ -130,9 +130,9 @@ const CommandCentre = () => {
                   <XAxis dataKey="month" axisLine={false} tickLine={false} />
                   <YAxis axisLine={false} tickLine={false} tickFormatter={(v) => `${v / 1000}k`} />
                   <Tooltip formatter={(value: number) => [`$${value.toLocaleString()}`, undefined]} />
-                  <Bar dataKey="charity" fill="hsl(228, 76%, 58%)" radius={[3, 3, 0, 0]} />
-                  <Bar dataKey="fba" fill="hsl(160, 72%, 37%)" radius={[3, 3, 0, 0]} />
-                  <Bar dataKey="shop" fill="hsl(38, 85%, 52%)" radius={[3, 3, 0, 0]} />
+                  <Bar dataKey="charity" fill="hsl(220, 70%, 55%)" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="fba" fill="hsl(152, 60%, 42%)" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="shop" fill="hsl(36, 80%, 55%)" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -143,7 +143,7 @@ const CommandCentre = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 rounded-lg border border-border bg-card p-4 space-y-4">
+          <div className="lg:col-span-2 glass-card rounded-xl p-4 space-y-4">
             <h2 className="text-label font-medium uppercase tracking-wider text-muted-foreground">Budget Status</h2>
             <BudgetBar label="Charity Kenya" percent={78} />
             <BudgetBar label="FBA Business" percent={42} />

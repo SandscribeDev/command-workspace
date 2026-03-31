@@ -15,6 +15,12 @@ const statusDot = {
   critical: "bg-destructive",
 };
 
+const statusGlow = {
+  "on-track": "shadow-[0_0_8px_hsl(152,60%,42%,0.3)]",
+  attention: "shadow-[0_0_8px_hsl(36,80%,55%,0.3)]",
+  critical: "shadow-[0_0_8px_hsl(0,60%,50%,0.3)]",
+};
+
 const statusLabel = {
   "on-track": "On track",
   attention: "Needs attention",
@@ -25,14 +31,13 @@ export function WorkspaceCard({ name, status, activeTasks, overdue, onClick }: W
   return (
     <motion.button
       whileTap={{ scale: 0.97 }}
-      transition={{ duration: 0.1 }}
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.15 }}
       onClick={onClick}
-      className={cn(
-        "w-full rounded-lg border border-border bg-card p-4 text-left transition-colors hover:bg-surface-hover"
-      )}
+      className="w-full glass-card-hover rounded-xl p-4 text-left"
     >
-      <div className="flex items-center gap-2">
-        <span className={cn("h-2 w-2 rounded-full", statusDot[status])} />
+      <div className="flex items-center gap-2.5">
+        <span className={cn("h-2 w-2 rounded-full", statusDot[status], statusGlow[status])} />
         <span className="text-data font-medium text-foreground">{name}</span>
       </div>
       <div className="mt-3 flex items-baseline gap-4">

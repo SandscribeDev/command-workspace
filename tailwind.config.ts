@@ -12,13 +12,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Geist", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
       fontSize: {
         "data-sm": ["13px", { lineHeight: "18px", letterSpacing: "0.01em" }],
         "data": ["14px", { lineHeight: "20px" }],
-        "label": ["11px", { lineHeight: "14px", letterSpacing: "0.06em" }],
+        "label": ["11px", { lineHeight: "14px", letterSpacing: "0.05em" }],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -53,6 +53,11 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        glass: {
+          DEFAULT: "hsl(var(--glass))",
+          border: "hsl(var(--glass-border))",
+          highlight: "hsl(var(--glass-highlight))",
         },
         surface: {
           DEFAULT: "hsl(var(--surface))",
