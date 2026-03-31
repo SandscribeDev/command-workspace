@@ -40,6 +40,14 @@ const workspaces = [
   { title: "Local Shop", url: "/ws/shop", icon: ShoppingBag },
 ];
 
+const visualizations = [
+  { title: "Workflow", url: "/workflow", icon: GitBranch },
+  { title: "Geo Map", url: "/map", icon: Globe },
+  { title: "Relationships", url: "/graph", icon: Network },
+  { title: "Timeline", url: "/gantt", icon: GanttChart },
+  { title: "Treemap", url: "/treemap", icon: SquareStack },
+];
+
 const tools = [
   { title: "Calendar", url: "/calendar", icon: Calendar },
   { title: "Finance", url: "/finance", icon: Wallet },
