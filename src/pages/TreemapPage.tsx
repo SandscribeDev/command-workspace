@@ -76,7 +76,7 @@ const CustomContent = ({ x = 0, y = 0, width = 0, height = 0, name = "", size = 
         style={{ cursor: "pointer" }}
       />
       {showLabel && (
-        <text x={x + 8} y={y + 18} fontSize={12} fontFamily="Inter" fontWeight={500} fill="white">
+        <text x={x + 8} y={y + 18} fontSize={12} fontFamily="Geist" fontWeight={500} fill="white">
           {name}
         </text>
       )}
