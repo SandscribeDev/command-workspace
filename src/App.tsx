@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import TaskBoard from "./pages/TaskBoard.tsx";
+import WorkspaceDetail from "./pages/WorkspaceDetail.tsx";
 import WorkflowPage from "./pages/WorkflowPage.tsx";
 import GeoMapPage from "./pages/GeoMapPage.tsx";
 import RelationshipGraph from "./pages/RelationshipGraph.tsx";
@@ -23,6 +24,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tasks" element={<TaskBoard />} />
+          <Route path="/ws/:id" element={<WorkspaceDetail />} />
           <Route path="/workflow" element={<WorkflowPage />} />
           <Route path="/map" element={<GeoMapPage />} />
           <Route path="/graph" element={<RelationshipGraph />} />

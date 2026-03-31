@@ -1,11 +1,6 @@
 import {
   LayoutDashboard,
   ListTodo,
-  Bell,
-  Calendar,
-  Wallet,
-  Users,
-  Settings,
   Building2,
   ShoppingBag,
   Package,
@@ -14,6 +9,7 @@ import {
   Network,
   GanttChart,
   SquareStack,
+  Settings,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
@@ -31,7 +27,6 @@ import {
 const mainNav = [
   { title: "Command Centre", url: "/", icon: LayoutDashboard },
   { title: "Task Board", url: "/tasks", icon: ListTodo },
-  { title: "Alerts", url: "/alerts", icon: Bell },
 ];
 
 const workspaces = [
@@ -48,16 +43,6 @@ const visualizations = [
   { title: "Treemap", url: "/treemap", icon: SquareStack },
 ];
 
-const tools = [
-  { title: "Calendar", url: "/calendar", icon: Calendar },
-  { title: "Finance", url: "/finance", icon: Wallet },
-  { title: "Workers", url: "/workers", icon: Users },
-];
-
-const admin = [
-  { title: "Settings", url: "/settings", icon: Settings },
-];
-
 export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
@@ -72,7 +57,7 @@ export function AppSidebar() {
             className="flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-data-sm text-sidebar-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             activeClassName="bg-sidebar-accent text-foreground font-medium"
           >
-            <item.icon className="h-4 w-4 shrink-0" />
+            <item.icon className="h-4 w-4 shrink-0 opacity-70" />
             {!collapsed && <span>{item.title}</span>}
           </NavLink>
         </SidebarMenuButton>
@@ -80,22 +65,22 @@ export function AppSidebar() {
     ));
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-sidebar-border">
-      <SidebarContent className="pt-4">
+    <Sidebar collapsible="icon" className="border-r border-sidebar-border bg-sidebar">
+      <SidebarContent className="py-3">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 px-4 pb-4">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground text-xs font-bold">
+        <div className="flex items-center gap-2.5 px-4 pb-3 mb-1">
+          <div className="flex h-6 w-6 items-center justify-center rounded bg-primary text-primary-foreground text-[10px] font-bold">
             OP
           </div>
           {!collapsed && (
-            <span className="text-sm font-semibold tracking-tight text-foreground">
+            <span className="text-data font-semibold tracking-tight text-foreground">
               Operations
             </span>
           )}
         </div>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
+          <SidebarGroupLabel className="text-label font-medium uppercase text-muted-foreground px-4">
             Overview
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -104,7 +89,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
+          <SidebarGroupLabel className="text-label font-medium uppercase text-muted-foreground px-4">
             Workspaces
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -113,7 +98,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
+          <SidebarGroupLabel className="text-label font-medium uppercase text-muted-foreground px-4">
             Visualizations
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -122,20 +107,13 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
-            Tools
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>{renderItems(tools)}</SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarGroup>
-          <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
+          <SidebarGroupLabel className="text-label font-medium uppercase text-muted-foreground px-4">
             Admin
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>{renderItems(admin)}</SidebarMenu>
+            <SidebarMenu>
+              {renderItems([{ title: "Settings", url: "/settings", icon: Settings }])}
+            </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
