@@ -68,7 +68,7 @@ const TaskBoard = () => {
       <div className="p-5 space-y-5 max-w-[1200px]">
         {/* Header */}
         <div className="flex items-center justify-end">
-          <button className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-data-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+          <button className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-data-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 shadow-[0_0_12px_hsl(220,70%,55%,0.3)]">
             <Plus className="h-3.5 w-3.5" />
             New Task
           </button>
@@ -81,17 +81,17 @@ const TaskBoard = () => {
               key={tab.key}
               onClick={() => setFilter(tab.key)}
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-data-sm font-medium transition-colors",
+                "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-data-sm font-medium transition-all",
                 filter === tab.key
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground hover:text-foreground"
+                  ? "bg-primary/15 text-primary ring-1 ring-primary/30"
+                  : "bg-muted/40 text-muted-foreground hover:text-foreground hover:bg-muted/60"
               )}
             >
               {tab.label}
               <span
                 className={cn(
                   "rounded-full px-1.5 text-[11px]",
-                  filter === tab.key ? "bg-primary-foreground/20 text-primary-foreground" : "bg-border text-muted-foreground"
+                  filter === tab.key ? "bg-primary/20 text-primary" : "bg-border/50 text-muted-foreground"
                 )}
               >
                 {counts[tab.key]}
@@ -101,10 +101,10 @@ const TaskBoard = () => {
         </div>
 
         {/* Table */}
-        <div className="overflow-hidden rounded-lg border border-border">
+        <div className="glass-card overflow-hidden rounded-xl">
           <table className="w-full text-data">
             <thead>
-              <tr className="border-b border-border bg-surface-2">
+              <tr className="border-b border-border/50">
                 <th className="px-4 py-2.5 text-left text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
                   Title
                 </th>
@@ -128,8 +128,8 @@ const TaskBoard = () => {
                   transition={{ delay: i * 0.03, duration: 0.15 }}
                   onClick={() => setSelectedTask(task)}
                   className={cn(
-                    "cursor-pointer border-b border-border transition-colors hover:bg-surface-hover",
-                    i % 2 === 1 && "bg-surface-2/50"
+                    "cursor-pointer border-b border-border/30 transition-colors hover:bg-surface-hover/50",
+                    i % 2 === 1 && "bg-surface-2/20"
                   )}
                 >
                   <td className="px-4 py-3 font-medium text-foreground">{task.title}</td>
@@ -157,7 +157,7 @@ const TaskBoard = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-background/60"
+              className="fixed inset-0 z-40 bg-background/70 backdrop-blur-sm"
               onClick={() => setSelectedTask(null)}
             />
             <motion.div
@@ -165,13 +165,13 @@ const TaskBoard = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col border-l border-border bg-card"
+              className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col glass-card border-l border-glass-border/50"
             >
-              <div className="flex items-center justify-between border-b border-border px-5 py-4">
+              <div className="flex items-center justify-between border-b border-border/40 px-5 py-4">
                 <h2 className="text-base font-semibold text-foreground">{selectedTask.title}</h2>
                 <button
                   onClick={() => setSelectedTask(null)}
-                  className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
+                  className="rounded-lg p-1 text-muted-foreground hover:bg-muted/40 hover:text-foreground"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -190,10 +190,10 @@ const TaskBoard = () => {
                         key={s}
                         onClick={() => updateStatus(selectedTask.id, s)}
                         className={cn(
-                          "rounded-md px-2.5 py-1 text-data-sm font-medium transition-colors",
+                          "rounded-lg px-2.5 py-1 text-data-sm font-medium transition-all",
                           selectedTask.status === s
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted text-muted-foreground hover:text-foreground"
+                            ? "bg-primary/15 text-primary ring-1 ring-primary/30"
+                            : "bg-muted/40 text-muted-foreground hover:text-foreground hover:bg-muted/60"
                         )}
                       >
                         {statusMap[s].label}
@@ -227,7 +227,7 @@ const TaskBoard = () => {
                   <p className="mt-2 text-data text-foreground leading-relaxed">{selectedTask.description}</p>
                 </div>
 
-                {/* Activity log placeholder */}
+                {/* Activity log */}
                 <div>
                   <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Activity</label>
                   <div className="mt-2 space-y-2">
