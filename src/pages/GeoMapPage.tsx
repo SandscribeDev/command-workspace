@@ -70,7 +70,7 @@ const GeoMapPage = () => {
                     key={marker.id}
                     coordinates={marker.coordinates}
                     onClick={() => setSelected(marker)}
-                    style={{ cursor: "pointer" }}
+                    style={{ default: { cursor: "pointer" } }}
                   >
                     <circle r={6} fill={statusColor[marker.status]} opacity={0.9} stroke="hsl(240, 15%, 4%)" strokeWidth={2} />
                     <circle r={10} fill={statusColor[marker.status]} opacity={0.2} />
