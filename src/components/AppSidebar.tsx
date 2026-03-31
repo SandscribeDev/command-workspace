@@ -9,6 +9,11 @@ import {
   Building2,
   ShoppingBag,
   Package,
+  GitBranch,
+  Globe,
+  Network,
+  GanttChart,
+  SquareStack,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
