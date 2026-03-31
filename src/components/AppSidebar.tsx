@@ -114,6 +114,15 @@ export function AppSidebar() {
 
         <SidebarGroup>
           <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
+            Visualizations
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>{renderItems(visualizations)}</SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-[11px] uppercase tracking-wider text-muted-foreground">
             Tools
           </SidebarGroupLabel>
           <SidebarGroupContent>
