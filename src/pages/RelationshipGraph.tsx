@@ -80,12 +80,8 @@ const RelationshipGraph = () => {
   const [e, , onEdgesChange] = useEdgesState(edges);
 
   return (
-    <DashboardLayout>
-      <div className="mx-auto max-w-6xl space-y-4">
-        <div>
-          <h1 className="text-xl font-semibold tracking-tight text-foreground">Relationship Graph</h1>
-          <p className="mt-1 text-data-sm text-muted-foreground">Team hierarchy and system connections across workspaces</p>
-        </div>
+    <DashboardLayout title="Relationship Graph" subtitle="Team & systems">
+      <div className="p-5 space-y-4 max-w-[1200px]">
         <div className="h-[600px] rounded-lg border border-border bg-card overflow-hidden">
           <ReactFlow
             nodes={n}

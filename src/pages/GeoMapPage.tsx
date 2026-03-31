@@ -33,12 +33,8 @@ const GeoMapPage = () => {
   const [selected, setSelected] = useState<SiteMarker | null>(null);
 
   return (
-    <DashboardLayout>
-      <div className="mx-auto max-w-6xl space-y-4">
-        <div>
-          <h1 className="text-xl font-semibold tracking-tight text-foreground">Geographic Map</h1>
-          <p className="mt-1 text-data-sm text-muted-foreground">Operational sites and worker locations across workspaces</p>
-        </div>
+    <DashboardLayout title="Geographic Map" subtitle="Operational sites">
+      <div className="p-5 space-y-4 max-w-[1200px]">
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
           {/* Map */}
