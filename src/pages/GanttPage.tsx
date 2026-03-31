@@ -46,7 +46,7 @@ const GanttPage = () => {
     <DashboardLayout title="Timeline" subtitle="Project Gantt">
       <div className="p-5 space-y-4 max-w-[1200px]">
 
-        <div className="overflow-x-auto rounded-lg border border-border bg-card">
+        <div className="overflow-x-auto glass-card rounded-xl">
           <div style={{ minWidth: 900 }}>
             {/* Header */}
             <div className="flex border-b border-border">
