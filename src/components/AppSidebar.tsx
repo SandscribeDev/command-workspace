@@ -12,6 +12,7 @@ import {
   Settings,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import {
   Sidebar,
   SidebarContent,
@@ -116,6 +117,13 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* Theme switcher — bottom of sidebar */}
+        {!collapsed && (
+          <div className="mt-auto border-t border-sidebar-border pt-2">
+            <ThemeSwitcher />
+          </div>
+        )}
       </SidebarContent>
     </Sidebar>
   );
